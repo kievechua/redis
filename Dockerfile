@@ -8,8 +8,8 @@ RUN apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv C7917B12 && \
     rm -rf /var/lib/apt/lists/*
 
 # Change the docker default timezone from UTC to KLT
-RUN echo "Asia/Kuala_Lumpur" > /etc/timezone
-RUN dpkg-reconfigure tzdata
+RUN sudo echo "Asia/Kuala_Lumpur" > /etc/timezone
+RUN sudo dpkg-reconfigure -f noninteractive tzdata
 
 # Add scripts
 ADD run.sh /run.sh
